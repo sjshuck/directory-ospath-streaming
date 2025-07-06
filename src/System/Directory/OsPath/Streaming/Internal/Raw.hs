@@ -213,8 +213,7 @@ readRawDirStreamWithCache (DirReadCache barr#) (RawDirStream stream root) = go
 
     go :: IO (Maybe (OsPath, Basename OsPath, FileType))
     go = do
-      x <- DirInternals.readDirStreamWithPtr
-        cache
+      x <- DirInternals.readDirStreamWith
         (\dirEnt -> do
           (namePtr :: CString) <- DirInternals.dirEntName dirEnt
 
